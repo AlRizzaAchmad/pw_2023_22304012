@@ -1,6 +1,6 @@
 <nav class="navbar navbar-expand-lg bg-body-tertiary">
   <div class="container-fluid">
-    <a class="navbar-brand" href="#">Sehatku</a>
+    <a class="navbar-brand" href="index>php">Sehatku</a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
@@ -10,7 +10,7 @@
           <a class="nav-link active" aria-current="page" href="index.php">Home</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#">Layanan</a>
+          <a class="nav-link" href="layanan.php">Layanan</a>
         </li>
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
@@ -22,10 +22,17 @@
           </ul>
         </li>
       </ul>
-      <form class="d-flex" role="search">
-        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-        <button class="btn btn-outline-success" type="submit">Search</button>
+      <form class="d-flex" role="search" method="POST">
+        <input class="keyword form-control me-2" type="text" placeholder="Search" aria-label="Search" name="keyword" id="keyword" autocomplete="off">
+        <button class="cari btn btn-outline-success" type="submit" name="cari" id="cari">Search</button>
       </form>
     </div>
   </div>
 </nav>
+
+<?php
+if(isset($_POST['cari'])){
+  $layanan = cari($_POST['keyword']);
+}
+
+?>

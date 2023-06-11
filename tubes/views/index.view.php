@@ -145,7 +145,7 @@
 
 </div>
 
-<footer class="text-center text-lg-start text-black" style="background-color: #fffff; width: 100%;">
+<footer class="text-center text-lg-start text-black" style="background-color: #ffffff;">
         <div class="container-fluid">
             <section class="">
                 <div class="row">

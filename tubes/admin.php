@@ -5,7 +5,11 @@ $title = 'Admin';
 
 $layanan = query("SELECT * FROM daftar_layanan") ;
 
-$id = isset($_GET["id"]) ? $_GET['id'] : null;
+if (isset($_POST['cari'])){
+    $layanan = cari($_POST['keyword']);
+}
+
+
 
 require('views/admin.view.php');
 

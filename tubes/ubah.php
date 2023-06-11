@@ -1,18 +1,20 @@
 <?php
 require('functions.php');
+$title = 'Form ubah  data';
 
-$title = 'Form tambah data';
 
-$id = $_GET["id"];
 
-$lyn = query("SELECT * FROM daftar_layanan WHERE id=$id")[0];
 
-if(isset($_POST['update'])){
+$id = $_GET['id'];
 
-    if(update($_POST)>0){
+$layanan = query("SELECT * FROM daftar_layanan WHERE id=$id")[0];
+
+if(isset($_POST['ubah'])){
+
+    if(ubah($_POST)>0){
         echo "<Script>
                 alert('Daftar Layanan berhasil di update');
-                document.location.href = 'index.php'
+                document.location.href = 'admin.php'
                 </script>";
     }else{
         echo "
@@ -24,6 +26,5 @@ if(isset($_POST['update'])){
     }
 
 }
-
 
 require('views/ubah.view.php');

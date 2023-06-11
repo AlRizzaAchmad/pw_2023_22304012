@@ -2,39 +2,49 @@
 <?php require('partials/nav.php'); ?>
 
 <div class="container mt-3">
-  <h1>update</h1>
+  <h1>Update Daftar Layanan</h1>
 
   <div class="row">
     <div class="col-md-8">
       <form action="" method="post">
-
-<input type="hidden" NAMA= "id" value="<?=lyn ["id"];?>">
-
+        <input type="hidden" name='id' value="<?= $layanan['id'];?>" >
         <div class="mb-3 w-25">
-          <label for="NAMA" class="form-label">NAMA</label>
-          <input type="text" class="form-control" name="NAMA" id="NAMA" maxlength="9"   required value="<?= $lyn["NAMA"]?>"/>
+          <label for="nama" class="form-label">Nama</label>
+          <input type="text" class="form-control" name="nama" id="nama" require maxlength="9" autofocus required value="<?= $layanan['nama'];?>" >
         </div>
         <div class="mb-3">
-          <label for="Spesialis" class="form-label">Spesialis</label>
-          <input type="text" class="form-control" name="Spesialis" id="Spesialis" value="<?= $lyn["NAMA"]?>"/>
+          <label for="spesialis" class="form-label">Spesialis</label>
+          <input type="text" class="form-control" name="spesialis" id="spesialis" value="<?= $layanan['spesialis'];?>">
         </div>
         <div class="mb-3">
-          <label for="Nomor_Telpon" class="form-label">Nomor_Telpon</label>
-          <input type="text" class="form-control" name="Nomor_Telpon" id="Nomor_Telpon"value="<?= $lyn["Nomor_Telpon"]?>"/>
+          <label for="nomor_telepon" class="form-label">Nomor Telepon</label>
+          <input type="text" class="form-control" name="nomor_telepon" id="nomor_telepon" value="<?= $layanan['nomor_telepon'];?>">
         </div>
         <div class="mb-3">
-          <label for="Email" class="form-label">Email</label>
-          <input type="text" class="form-control" name="Email" id="Email"value="<?= $lyn["Email"]?>"/>
+          <label for="email" class="form-label">Email</label>
+          <input type="text" class="form-control" name="email" id="email" value="<?= $layanan['email'];?>">
         </div>
         <div class="mb-3">
-          <label for="Gambar" class="form-label">Gambar</label>
-          <input type="text" class="form-control" name="Gambar" id="Gambar" value="<?= $lyn["Gambar"]?>"/>
+            <label for="gambar" class="form-label">Gambar</label>
+            <input type="file" name="gambar" class="form-control" id="gambar" onchange="previewImage(event);">
+            <h5 class="my-3" id="gambar-text">Gambar Saat Ini</h5>
+            <img src="images/<?= $layanan['gambar'] ?>" alt="" id="preview" width="100">
         </div>
-        <button class="Update btn-primary" type="submit" name="ubah">Update</button>
+        <button class="btn btn-primary" type="submit" name="ubah">Ubah Data</button>
       </form>
     </div>
   </div>
 
 </div>
+<script>
+    function previewImage(event) {
+        var reader = new FileReader();
+        reader.onload = function() {
+            var preview = document.getElementById('preview');
+            preview.src = reader.result;
+        }
+        reader.readAsDataURL(event.target.files[0]);
+    }
+</script>
 
 <?php require('partials/footer.php'); ?>
